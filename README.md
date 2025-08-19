@@ -14,4 +14,4 @@ It helps libraries manage books, transactions, users, and reports efficiently.
 ## 🚀 Installation
 1. Clone this repo:
    ```bash
-   git clone https://github.com/your-username/bookhub.git
+   git clone https://github.com/TN-Thushan/bookhub.git
