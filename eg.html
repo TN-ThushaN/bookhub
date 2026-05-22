@@ -1,0 +1,21 @@
+<div class="container">
+    <img src="profile.jpg" alt="User Picture" class="profile-picture">
+    <div class="profile-info">
+        <h1>John Doe</h1>
+        <p>Email: johndoe@example.com</p>
+        <p>Phone: +123 456 7890</p>
+        <button class="edit-profile-btn" onclick="window.location.href='profile-settings.html'">Edit Profile</butto
+
+
+            <link rel="icon" href="logo.png" type="image/png">
+
+            <a href="logout.php">Logout</a>
+
+
+            <?php
+$con = mysqli_connect("localhost", "root", "", "libmansysdb");
+
+if(!$con) {
+    die('Connection Failed'. mysqli_connect_error());
+}
+?>

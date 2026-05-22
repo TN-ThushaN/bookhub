@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System - Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      position: relative; /* Allows positioning of child elements */
+    }
+    header h1 {
+      margin: 0;
+    }
+    /* Profile Icon Styles */
+    .profile-icon {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+    }
+    .profile-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #34495e;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 15px;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background-color: #1abc9c;
+      border-radius: 5px;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    .button-container a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 20px;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .button-container a:hover {
+      background-color: #16a085;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the BOOKHUB</h1>
+    <p>Manage your library resources efficiently</p>
+    <!-- Profile Icon in the Top-Right Corner -->
+    <div class="profile-icon" onclick="window.location.href='profile.html'">
+      <img src="images/default-profile.png" alt="Profile" />
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="about.html">About </a></li>
+      <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+      <li><a href="accounts.html">Accounts</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>What would you like to do today?</h2>
+    <div class="button-container">
+      <a href="books.html">Manage Books</a>
+      <a href="accounts.html">Manage Accounts</a>
+      <a href="events.html">View Events</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="reports.html">Generate Reports</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Library Management System. All rights reserved.</p>
+  </footer>
+</body>
+</html>

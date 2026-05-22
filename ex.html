@@ -1,0 +1,86 @@
+<?php
+session_start();
+require "include/dbcon.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$query = "SELECT b.title, b.author, t.borrow_date, t.due_date, t.return_date, t.id AS transaction_id
+          FROM transactions t
+          JOIN books b ON t.book_id = b.id
+          WHERE t.user_id = '$user_id'";
+
+$result = mysqli_query($con, $query);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Transactions</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin: 20px auto;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h2 {
+      text-align: center;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<h2>My Borrowed Books</h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Borrow Date</th>
+    <th>Due Date</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <?php
+  while ($row = mysqli_fetch_assoc($result)) {
+    $status = $row['return_date'] ? "Returned" : "Borrowed";
+    echo "<tr>";
+    echo "<td>{$row['title']}</td>";
+    echo "<td>{$row['author']}</td>";
+    echo "<td>{$row['borrow_date']}</td>";
+    echo "<td>{$row['due_date']}</td>";
+    echo "<td>$status</td>";
+    echo "<td>";
+    if (!$row['return_date']) {
+      echo "<form action='return_book.php' method='POST'>
+              <input type='hidden' name='transaction_id' value='{$row['transaction_id']}'>
+              <button type='submit'>Return</button>
+            </form>";
+    } else {
+      echo "-";
+    }
+    echo "</td></tr>";
+  }
+  ?>
+</table>
+</body>
+</html>
