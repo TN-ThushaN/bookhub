@@ -132,4 +132,14 @@ $conn->close();
 // Redirect
 header("Location: profile-settings.php");
 exit();
+?> $stmt->error;
+}
+
+// Close
+$stmt->close();
+$conn->close();
+
+// Redirect
+header("Location: profile-settings.php");
+exit();
 ?>
